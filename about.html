@@ -255,18 +255,20 @@
         </div>
     </section>
 
+
+
     <section class="section s-location mb-40">
-        <div class="container">
+        <div class="container mb-40">
             <div class="row m-row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column text-center">
-                    <h4 class="heading text-uppercase mb-40">Location</h4>
+                    <h4 class="heading text-uppercase text-l heading-font mb-40">Location</h4>
                 </div>
             </div>
             <div class="row d-flex align-middle">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                    <div class="location__map"></div>
+                    <div id="map" class="location__map"></div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 column d-flex align-center">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 column  contact-time__wrap">
                     <ul class="contact-time">
                         <li>Monday: Closed</li>
                         <li>Tuesday: 10 am - 6 pm</li>
@@ -308,6 +310,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section class="section s-blog">
         <div class="container">
@@ -354,6 +358,109 @@
 <script src="./assets/js/jquery-3.6.0.min.js"></script>
 
 <script src="assets/js/accordion.min.js"></script>
+<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key="
+        type="text/javascript"></script>
+<script async defer>
+
+    function initializeMap() {
+        var element = document.getElementById('map');
+        var options = {
+            zoom: 15,
+            center: {lat: 50.47253296158417, lng: 30.443476447314264},
+            styles: [{"elementType": "geometry", "stylers": [{"color": "#f5f5f5"}]}, {
+                "elementType": "labels.icon",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#616161"}]
+            }, {
+                "elementType": "labels.text.stroke",
+                "stylers": [{"color": "#f5f5f5"}]
+            }, {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#bdbdbd"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{"color": "#eeeeee"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#757575"}]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{"color": "#e5e5e5"}]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#9e9e9e"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"color": "#ffffff"}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#757575"}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [{"color": "#dadada"}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#616161"}]
+            }, {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#9e9e9e"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"color": "#e5e5e5"}]
+            }, {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [{"color": "#eeeeee"}]
+            }, {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{"color": "#c9c9c9"}]
+            }, {"featureType": "water", "elementType": "labels.text.fill", "stylers": [{"color": "#9e9e9e"}]}]
+        };
+        var myMap = new google.maps.Map(element, options);
+        var markers = [{
+            coordinates: {lat: 50.47253296158417, lng: 30.443476447314264},
+            image: "assets/img/placeholder.png",
+            info: "<div class='map-info'><h4>test</h4><div>test</div><a href='tel:354678'>346577ijhgfv</a></div>"
+        },];
+
+        function addMarker(properties) {
+            var marker = new google.maps.Marker({position: properties.coordinates, map: myMap, icon: properties.image});
+            if (properties.image) {
+                marker.setIcon(properties.image);
+            }
+            if (properties.info) {
+                marker.addListener('click', function () {
+                    InfoWindow.open(myMap, marker);
+                });
+                var InfoWindow = new google.maps.InfoWindow({content: properties.info});
+            }
+        }
+
+        for (var i = 0; i < markers.length; i++) {
+            addMarker(markers[i]);
+        }
+    }
+
+
+    $(window).on('load', function () {
+        initializeMap();
+    });
+</script>
+
 
 </body>
 </html>
