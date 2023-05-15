@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Bestjeweler</title>
+    <meta name="description" content=""/>
+
+
+    <link rel="stylesheet" href="assets/css/app.css"/>
+
+</head>
+<body>
+
+
+<header class="header">
+
+</header>
+
+<main class="main">
+    <div class="kama_breadcrumbs__wrap --relative">
+        <div class="container">
+            <div class="row align-middle m-row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                    <div class="kama_breadcrumbs">
+            <span>
+                <a href=""><span>Home</span></a>
+            </span>
+                        <span class="kb_sep">/</span>
+                        <span class="kb_title">Contact Us</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section s-contacts">
+        <h1 class="heading text-uppercase text-xl text-center mb-40 heading-font">Contact Us</h1>
+
+        <div class="accent-block">
+            <div class="container">
+                <div class="row m-row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column text-center">
+                        <div class="text-m">Write us a note and we'll get back to you as quickly as possible.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row m-row align-center">
+                <div class="col-xl-5 col-lg-6 col-md-6 col-sm-10 col-xs-12 column">
+                    <div class="s-contacts__form">
+                        <form>
+                            <div class="form-control">
+                                <input class="form-control__input" type="text" name="" value="" placeholder="Name"
+                                       title="">
+                            </div>
+                            <div class="form-control">
+                                <input class="form-control__input" type="email" name="" value="" placeholder="Email"
+                                       title="">
+                            </div>
+                            <div class="form-control">
+                                <input class="form-control__input" type="tel" name="" value=""
+                                       placeholder="Phone Number" title="">
+                            </div>
+                            <div class="form-control">
+                                <textarea id="message" class="form-control__textarea" name="message" rows="6"
+                                          placeholder="What’s on your mind?"></textarea>
+                            </div>
+
+                            reload captcha
+                            <input type="submit" value="submit" class="btn btn-white form-control__btn">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section s-location ">
+        <div class="container mb-40">
+            <div class="row m-row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column text-center">
+                    <h4 class="heading text-uppercase text-l heading-font mb-40">Location</h4>
+                </div>
+            </div>
+            <div class="row d-flex align-middle">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
+                    <div id="map" class="location__map"></div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 column  contact-time__wrap">
+                    <ul class="contact-time">
+                        <li>Monday: Closed</li>
+                        <li>Tuesday: 10 am - 6 pm</li>
+                        <li>Wednesday: 10 am - 6 pm</li>
+                        <li>Thursday: 10 am - 6 pm</li>
+                        <li>Friday: 10 am - 6 pm</li>
+                        <li>Saturday: 10 am - 5 pm</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 column">
+
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <img src="assets/img/location.svg">
+                        </div>
+                        <div class="contact-desc">
+                            6750 S. Emporia St.<br>
+                            Centennial, Colorado 80112
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <img src="assets/img/phone.svg">
+                        </div>
+                        <a href="tel:3037328991" class="contact-desc">
+                            3037328991
+                        </a>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <img src="assets/img/message.svg">
+                        </div>
+                        <a href="mailto:info@mirojewelers.com" class="contact-desc">
+                            info@mirojewelers.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+
+</footer>
+
+<script src="./assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="assets/js/accordion.min.js"></script>
+<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key="
+        type="text/javascript"></script>
+<script async defer>
+
+    function initializeMap() {
+        var element = document.getElementById('map');
+        var options = {
+            zoom: 15,
+            center: {lat: 50.47253296158417, lng: 30.443476447314264},
+            styles: [{"elementType": "geometry", "stylers": [{"color": "#f5f5f5"}]}, {
+                "elementType": "labels.icon",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#616161"}]
+            }, {
+                "elementType": "labels.text.stroke",
+                "stylers": [{"color": "#f5f5f5"}]
+            }, {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#bdbdbd"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{"color": "#eeeeee"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#757575"}]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{"color": "#e5e5e5"}]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#9e9e9e"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"color": "#ffffff"}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#757575"}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [{"color": "#dadada"}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#616161"}]
+            }, {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#9e9e9e"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"color": "#e5e5e5"}]
+            }, {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [{"color": "#eeeeee"}]
+            }, {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{"color": "#c9c9c9"}]
+            }, {"featureType": "water", "elementType": "labels.text.fill", "stylers": [{"color": "#9e9e9e"}]}]
+        };
+        var myMap = new google.maps.Map(element, options);
+        var markers = [{
+            coordinates: {lat: 50.47253296158417, lng: 30.443476447314264},
+            image: "assets/img/placeholder.png",
+            info: "<div class='map-info'><h4>test</h4><div>test</div><a href='tel:354678'>346577ijhgfv</a></div>"
+        },];
+
+        function addMarker(properties) {
+            var marker = new google.maps.Marker({position: properties.coordinates, map: myMap, icon: properties.image});
+            if (properties.image) {
+                marker.setIcon(properties.image);
+            }
+            if (properties.info) {
+                marker.addListener('click', function () {
+                    InfoWindow.open(myMap, marker);
+                });
+                var InfoWindow = new google.maps.InfoWindow({content: properties.info});
+            }
+        }
+
+        for (var i = 0; i < markers.length; i++) {
+            addMarker(markers[i]);
+        }
+    }
+
+
+    $(window).on('load', function () {
+        initializeMap();
+    });
+</script>
+
+</body>
+</html>
