@@ -182,7 +182,7 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 column">
                                         <div class="form-control mb-10">
-                                            <label for="budget" class="form-control__label text-m mb-2 font-light">Budgett</label>
+                                            <label for="budget" class="form-control__label text-m mb-2 font-light">Budget</label>
                                             <select name="budget" id="budget" class="w-full">
                                                 <option value="">Please Select</option>
                                                 <option value="Under $2,500">Under $2,500</option>
@@ -211,13 +211,19 @@
                                             <label for="file-img" class="form-control__label text-m mb-2">Upload
                                                 Pictures for Inspiration or
                                                 something you are trying to recreate </label>
-                                            <div class="jq-file">
-                                                <div class="jq-file__name">Choose File</div>
+                                            <div class="jq-file d-flex align-middle align-left">
+                                                <div class="jq-file__btn">Choose File</div>
+                                                <div class="jq-file__name"></div>
                                                 <input type="file" name="attachment" id="file-img"
-                                                       class="attachment jq-file__input">
+                                                       class="attachment jq-file__input" accept="image/*"
+                                                       onchange="readImageURL(this);">
                                             </div>
 
                                         </div>
+
+                                        <span class="image-preview-display-imageuploads">
+                                            <img id="image-preview-output-imageuploads">
+                                        </span>
                                     </div>
                                 </div>
 
@@ -260,7 +266,7 @@
                                                 of Stone I’m interested in</label>
                                             <select name="typeofstone" id="typeofstone" class="w-full">
                                                 <option value="">Please Select</option>
-                                                <option value="Diamond">Diamond</option>
+                                                <option value="Natural Diamond">Natural Diamond</option>
                                                 <option value="Sapphire">Sapphire</option>
                                                 <option value="Ruby">Ruby</option>
                                                 <option value="Emerald">Emerald</option>
@@ -279,14 +285,15 @@
                                                 <option value="">Please Select</option>
                                                 <option value="Round">Round</option>
                                                 <option value="Princess">Princess</option>
+                                                <option value="Oval">Oval</option>
+                                                <option value="Pear">Pear</option>
+                                                <option value="Cushion">Cushion</option>
+                                                <option value="Marquise">Marquise</option>
+                                                <option value="Heart">Heart</option>
                                                 <option value="Emerald">Emerald</option>
                                                 <option value="Radiant">Radiant</option>
-                                                <option value="Cushion">Cushion</option>
                                                 <option value="Assher">Assher</option>
-                                                <option value="Oval">Oval</option>
-                                                <option value="Marquise">Marquise</option>
-                                                <option value="Pear">Pear</option>
-                                                <option value="Other">Other</option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -294,28 +301,51 @@
                                 </div>
                                 <div class="row  m-row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 column">
-
                                         <div class="form-control__label text-m mb-2 font-bold">Center Stone Carat
                                             Weight:
                                         </div>
                                         <div class="row m-row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                                <div class="form-control mb-10">
-                                                    <label for="name"
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column ">
+                                                <div class="form-control mb-10 measurement">
+                                                    <label for="centerstonecaratfrom"
                                                            class="form-control__label text-m mb-2 font-light">From</label>
-                                                    <input class="form-control__input" type="text" name="" value=""
-                                                           placeholder=""
-                                                           title="" id="name">
+
+
+                                                    <select name="centerstonecaratfrom" id="centerstonecaratfrom"
+                                                            class="w-full">
+                                                        <option value="">Please Select</option>
+                                                        <option value="0.50">0.50</option>
+                                                        <option value="1.00">1.00</option>
+                                                        <option value="1.50">1.50</option>
+                                                        <option value="2.00">2.00</option>
+                                                        <option value="2.50">2.50</option>
+                                                        <option value="3.00">3.00</option>
+                                                        <option value="3.50">3.50</option>
+                                                        <option value="4.00">4.00(+)</option>
+                                                    </select>
+                                                    <div class="measurement__title text-m font-light">Ct</div>
                                                 </div>
+
+
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                                                <div class="form-control mb-10">
-                                                    <label for="name"
+                                                <div class="form-control mb-10 measurement">
+                                                    <label for="centerstonecaratto"
                                                            class="form-control__label text-m mb-2 font-light">To</label>
-                                                    <input class="form-control__input" type="text" name="" value=""
-                                                           placeholder=""
-                                                           title="" id="name">
+                                                    <select name="centerstonecaratto" id="centerstonecaratto"
+                                                            class="w-full">
+                                                        <option value="">Please Select</option>
+                                                        <option value="1.00">1.00</option>
+                                                        <option value="1.50">1.50</option>
+                                                        <option value="2.00">2.00</option>
+                                                        <option value="2.50">2.50</option>
+                                                        <option value="3.00">3.00</option>
+                                                        <option value="3.50">3.50</option>
+                                                        <option value="4.00">4.00</option>
+                                                    </select>
+                                                    <div class="measurement__title text-m font-light">Ct</div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -338,32 +368,16 @@
                                                         <option value="I">I</option>
                                                         <option value="J">J</option>
                                                         <option value="K">K</option>
-                                                        <option value="L">L</option>
-                                                        <option value="M">M</option>
-                                                        <option value="N">N</option>
-                                                        <option value="O">O</option>
-                                                        <option value="P">P</option>
-                                                        <option value="Q">Q</option>
-                                                        <option value="R">R</option>
-                                                        <option value="S">S</option>
-                                                        <option value="T">T</option>
-                                                        <option value="U">U</option>
-                                                        <option value="V">V</option>
-                                                        <option value="W">W</option>
-                                                        <option value="X">X</option>
-                                                        <option value="Y">Y</option>
-                                                        <option value="Z">Z</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
                                                 <div class="form-control mb-10">
                                                     <label for="centerstonecolorto"
-                                                           class="form-control__label text-m mb-2 font-light">From</label>
+                                                           class="form-control__label text-m mb-2 font-light">To</label>
                                                     <select name="centerstonecolorto" id="centerstonecolorto"
                                                             class="w-full">
                                                         <option value="">Please Select</option>
-                                                        <option value="D">D</option>
                                                         <option value="E">E</option>
                                                         <option value="F">F</option>
                                                         <option value="G">G</option>
@@ -371,21 +385,7 @@
                                                         <option value="I">I</option>
                                                         <option value="J">J</option>
                                                         <option value="K">K</option>
-                                                        <option value="L">L</option>
-                                                        <option value="M">M</option>
-                                                        <option value="N">N</option>
-                                                        <option value="O">O</option>
-                                                        <option value="P">P</option>
-                                                        <option value="Q">Q</option>
-                                                        <option value="R">R</option>
-                                                        <option value="S">S</option>
-                                                        <option value="T">T</option>
-                                                        <option value="U">U</option>
-                                                        <option value="V">V</option>
-                                                        <option value="W">W</option>
-                                                        <option value="X">X</option>
-                                                        <option value="Y">Y</option>
-                                                        <option value="Z">Z</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -397,67 +397,37 @@
                                         <div class="row m-row">
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
                                                 <div class="form-control mb-10">
-                                                    <label for="centerstonecolorfrom"
+                                                    <label for="centerstoneclarityfrom"
                                                            class="form-control__label text-m mb-2 font-light">From</label>
-                                                    <select name="centerstonecolorfrom" id="centerstonecolorfrom"
+                                                    <select name="centerstoneclarityfrom" id="centerstoneclarityfrom"
                                                             class="w-full">
                                                         <option value="">Please Select</option>
-                                                        <option value="D">D</option>
-                                                        <option value="E">E</option>
-                                                        <option value="F">F</option>
-                                                        <option value="G">G</option>
-                                                        <option value="H">H</option>
-                                                        <option value="I">I</option>
-                                                        <option value="J">J</option>
-                                                        <option value="K">K</option>
-                                                        <option value="L">L</option>
-                                                        <option value="M">M</option>
-                                                        <option value="N">N</option>
-                                                        <option value="O">O</option>
-                                                        <option value="P">P</option>
-                                                        <option value="Q">Q</option>
-                                                        <option value="R">R</option>
-                                                        <option value="S">S</option>
-                                                        <option value="T">T</option>
-                                                        <option value="U">U</option>
-                                                        <option value="V">V</option>
-                                                        <option value="W">W</option>
-                                                        <option value="X">X</option>
-                                                        <option value="Y">Y</option>
-                                                        <option value="Z">Z</option>
+                                                        <option value="IF">IF</option>
+                                                        <option value="FL">FL</option>
+                                                        <option value="VVS1">VVS1</option>
+                                                        <option value="VVS2">VVS2</option>
+                                                        <option value="VS1">VS1</option>
+                                                        <option value="VS2">VS2</option>
+                                                        <option value="SI1">SI1</option>
+                                                        <option value="SI2">SI2</option>
+                                                        <option value="I1">I1</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
                                                 <div class="form-control mb-10">
-                                                    <label for="centerstonecolorto"
-                                                           class="form-control__label text-m mb-2 font-light">From</label>
-                                                    <select name="centerstonecolorto" id="centerstonecolorto"
+                                                    <label for="centerstoneclarityto"
+                                                           class="form-control__label text-m mb-2 font-light">To</label>
+                                                    <select name="centerstoneclarityto" id="centerstoneclarityto"
                                                             class="w-full">
                                                         <option value="">Please Select</option>
-                                                        <option value="D">D</option>
-                                                        <option value="E">E</option>
-                                                        <option value="F">F</option>
-                                                        <option value="G">G</option>
-                                                        <option value="H">H</option>
-                                                        <option value="I">I</option>
-                                                        <option value="J">J</option>
-                                                        <option value="K">K</option>
-                                                        <option value="L">L</option>
-                                                        <option value="M">M</option>
-                                                        <option value="N">N</option>
-                                                        <option value="O">O</option>
-                                                        <option value="P">P</option>
-                                                        <option value="Q">Q</option>
-                                                        <option value="R">R</option>
-                                                        <option value="S">S</option>
-                                                        <option value="T">T</option>
-                                                        <option value="U">U</option>
-                                                        <option value="V">V</option>
-                                                        <option value="W">W</option>
-                                                        <option value="X">X</option>
-                                                        <option value="Y">Y</option>
-                                                        <option value="Z">Z</option>
+                                                        <option value="FL">FL</option>
+                                                        <option value="VVS1">VVS1</option>
+                                                        <option value="VVS2">VVS2</option>
+                                                        <option value="VS1">VS1</option>
+                                                        <option value="VS2">VS2</option>
+                                                        <option value="SI1">SI1</option>
+                                                        <option value="SI2">SI2</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -468,7 +438,8 @@
                                 <div class="row m-row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
                                         <div class="form-control">
-                                            <label class="form-control__label text-m mb-2 font-light" for="message">Anything else we
+                                            <label class="form-control__label text-m mb-2 font-light" for="message">Anything
+                                                else we
                                                 should
                                                 know?</label>
                                             <textarea id="message" class="form-control__textarea" name="message"
@@ -484,15 +455,19 @@
                                         <div class="form-control mb-10">
                                             <label for="file" class="form-control__label text-m mb-2">Upload
                                                 Pictures </label>
-                                            <div class="jq-file">
-                                                <div class="jq-file__name">Choose File</div>
+                                            <div class="jq-file d-flex align-middle align-left">
+                                                <div class="jq-file__btn">Choose File</div>
+                                                <div class="jq-file__name"></div>
                                                 <input type="file" name="attachment" id="file"
-                                                       class="attachment jq-file__input">
+                                                       class="attachment jq-file__input" accept="image/*"
+                                                       onchange="readURL(this);">
                                             </div>
 
                                         </div>
 
-
+                                        <span class="image-preview-display">
+                                            <img id="image-preview-output">
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="row m-row align-center">
@@ -509,7 +484,6 @@
             </div>
         </div>
     </section>
-
 
 </main>
 
@@ -528,16 +502,43 @@
         let $thisFile = $(this).find('.jq-file__name');
         let $thisInput = $(this).find('.jq-file__input');
 
-        $thisFile.on('click', function () {
+       /* $thisFile.on('click', function () {
             $(this).parents('.jq-file').find('.jq-file__input').click();
-        });
+        });*/
         $thisInput.on('change', function () {
             $(this).parents('.jq-file').find('.jq-file__name').html(this.value.replace("C:\\fakepath\\", ""));
         });
 
     });
 </script>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                jQuery('#image-preview-output').attr('src', e.target.result);
+                jQuery(".image-preview-display").addClass("preview-image");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function readImageURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                jQuery('#image-preview-output-imageuploads').attr('src', e.target.result);
+                jQuery(".image-preview-display-imageuploads").addClass("preview-image");
+            }
+            ;
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 <script>
     $(document).ready(function () {
         $('.form-control select').SumoSelect();
