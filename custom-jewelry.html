@@ -49,13 +49,13 @@
             </div>
         </div>
         <div class="container">
-            <div class="row align-middle s-img-text__row m-row mb-10 ">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
+            <div class="row align-middle s-img-text__row  mb-10 ">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                     <div class="s-img-text__img-wrap --relative">
                         <img src="assets/img/cj-1.png" alt="" class="s-img-text__img --relative">
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                     <div class="s-img-text__content">
                         <div class="text text-m">
                             <p> With more than 56 years in jewelry manufacturing, custom design isn’t just a service,
@@ -69,13 +69,13 @@
                 </div>
 
             </div>
-            <div class="row align-middle s-img-text__row m-row mb-10 row-reverse">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
-                    <div class="s-img-text__img-wrap --relative">
+            <div class="row align-middle s-img-text__row  mb-10 row-reverse">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="s-img-text__img-wrap --relative paroller" data-paroller-factor="-0.1">
                         <img src="assets/img/cj-2.png" alt="" class="s-img-text__img --relative">
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 column">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="s-img-text__content">
                         <div class="text text-m">
                             <p>Depending on the design, we will create the model by either hand-carving it from a block
@@ -112,7 +112,8 @@
              data-paroller-factor="0.5">
         <div class="container">
 
-            <div class="heading__custom heading__parallax --relative text-uppercase text-center  heading-font mb-15" data-paroller-factor="-0.15" data-paroller-type="foreground">
+            <div class="heading__custom heading__parallax --relative text-uppercase text-center  heading-font mb-15"
+                 data-paroller-factor="-0.15" data-paroller-type="foreground">
                 DESIGN YOUR OWN
                 <span> DESIGN YOUR OWN</span>
             </div>
@@ -238,7 +239,7 @@
         </div>
 
         <div class="heading__parallax text-uppercase text-center  heading-font mb-3"
-             data-paroller-factor="-0.15" data-paroller-type="foreground">
+             data-paroller-factor="-0.15">
             DESIGN YOUR OWN
         </div>
     </section>
@@ -246,10 +247,7 @@
     <section class="section s-get-start align-end align-center d-flex "
              style="background-image: url('assets/img/test.jpg'); "
              data-paroller-factor="0.5">
-        <!--  <img src="assets/img/get-start.png" alt="" class="s-get-start__bg" data-paroller-factor="0.5">-->
-
         <a href="" class="s-get-start__btn text-center">START THE PROCESS</a>
-
     </section>
 
     <section class="section s-img-text ">
@@ -300,32 +298,6 @@
 <script src="./assets/js/jquery-3.6.0.min.js"></script>
 
 <script src="./assets/js/jquery.paroller.js"></script>
-<!--<script type="text/javascript">
-    require(
-        [
-            'jquery',
-            'ScrollReveal'
-        ],
-        function($,ScrollReveal) {
-            $(window).load(function() {
-                window.sr = ScrollReveal({ reset: true });
-
-                sr.reveal('.object-title', { duration: 800, mobile: false, distance: '100px', easing: 'ease-in-out', reset: false, origin: 'right'});
-
-                sr.reveal('.store-colletion-inner li:first-child', { duration: 800, mobile: false, distance: '155px', easing: 'ease-in-out', reset: false, origin: 'left'});
-
-                sr.reveal('.store-colletion-inner li', { duration: 800, mobile: false, distance: '155px', easing: 'ease-in-out', reset: false, origin: 'bottom'});
-
-                sr.reveal('.store-colletion-inner li:last-child', { duration: 800, mobile: false, distance: '155px', easing: 'ease-in-out', reset: false, origin: 'right'});
-
-                sr.reveal('.footer-links .links-block', { duration: 500, mobile: false, distance: '20px', easing: 'ease-in-out', reset: false, origin: 'bottom'});
-
-                sr.reveal('.payment-social-share-block', { duration: 500, mobile: false, distance: '20px', easing: 'ease-in-out', reset: false, origin: 'bottom'});
-
-            });
-        }
-    );
-</script>-->
 
 <script>
 
@@ -336,6 +308,128 @@
             type: 'foreground'
         });
         //$('html').smoothScroll();
+    });
+
+
+
+
+    (function (factory) {
+        'use strict';
+
+        if (typeof module === 'object' && typeof module.exports === 'object') {
+            module.exports = factory(require('jquery'));
+        }
+        else {
+            factory(jQuery);
+        }
+    })(function ($) {
+        'use strict';
+
+        var setDirection = {
+            bgVertical: function (elem, bgOffset) {
+                return elem.css({'background-position': 'center ' + -bgOffset + 'px'});
+            },
+            bgHorizontal: function (elem, bgOffset) {
+                return elem.css({'background-position': -bgOffset + 'px' + ' center'});
+            },
+            vertical: function (elem, elemOffset) {
+                return elem.css({
+                    '-webkit-transform': 'translateY(' + elemOffset + 'px)',
+                    '-moz-transform': 'translateY(' + elemOffset + 'px)',
+                    'transform': 'translateY(' + elemOffset + 'px)',
+                    'transition': 'transform linear',
+                    'will-change': 'transform'
+                });
+            },
+            horizontal: function (elem, elemOffset) {
+                return elem.css({
+                    '-webkit-transform': 'translateX(' + elemOffset + 'px)',
+                    '-moz-transform': 'translateX(' + elemOffset + 'px)',
+                    'transform': 'translateX(' + elemOffset + 'px)',
+                    'transition': 'transform linear',
+                    'will-change': 'transform'
+                });
+            }
+        };
+
+        $.fn.paroller = function (options) {
+            var windowHeight = $(window).height();
+            var documentHeight = $(document).height();
+
+            // default options
+            var options = $.extend({
+                factor: 0, // - to +
+                type: 'background', // foreground
+                direction: 'vertical' // horizontal
+            }, options);
+
+            return this.each(function () {
+                var working = false;
+                var $this = $(this);
+                var offset = $this.offset().top;
+                var height = $this.outerHeight();
+                var dataFactor = $this.data('paroller-factor');
+                var dataType = $this.data('paroller-type');
+                var dataDirection = $this.data('paroller-direction');
+
+                var factor = (dataFactor) ? dataFactor : options.factor;
+                var type = (dataType) ? dataType : options.type;
+                var direction = (dataDirection) ? dataDirection : options.direction;
+                var bgOffset = Math.round(offset * factor);
+                var transform = Math.round((offset - (windowHeight / 2) + height) * factor);
+
+                if (type == 'background') {
+                    if (direction == 'vertical') {
+                        setDirection.bgVertical($this, bgOffset);
+                    }
+                    else if (direction == 'horizontal') {
+                        setDirection.bgHorizontal($this, bgOffset);
+                    }
+                }
+                else if (type == 'foreground') {
+                    if (direction == 'vertical') {
+                        setDirection.vertical($this, transform);
+                    }
+                    else if (direction == 'horizontal') {
+                        setDirection.horizontal($this, transform);
+                    }
+                }
+
+                var scrollAction = function () {
+                    working = false;
+                };
+
+                $(window).on('scroll', function () {
+                    if (!working) {
+                        var scrolling = $(this).scrollTop();
+                        documentHeight = $(document).height();
+
+                        bgOffset = Math.round((offset - scrolling) * factor);
+                        transform = Math.round(((offset - (windowHeight / 2) + height) - scrolling) * factor);
+
+                        if (type == 'background') {
+                            if (direction == 'vertical') {
+                                setDirection.bgVertical($this, bgOffset);
+                            }
+                            else if (direction == 'horizontal') {
+                                setDirection.bgHorizontal($this, bgOffset);
+                            }
+                        }
+                        else if ((type == 'foreground') && (scrolling <= documentHeight)) {
+                            if (direction == 'vertical') {
+                                setDirection.vertical($this, transform);
+                            }
+                            else if (direction == 'horizontal') {
+                                setDirection.horizontal($this, transform);
+                            }
+                        }
+
+                        window.requestAnimationFrame(scrollAction);
+                        working = true;
+                    }
+                }).trigger('scroll');
+            });
+        };
     });
 
 </script>
